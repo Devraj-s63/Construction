@@ -1,50 +1,29 @@
-"use client";
-
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import MagneticButton from "./MagneticButton";
+import Link from "next/link";
+import { projects } from "@/lib/project-data";
 
 const filters = ["All", "Current Projects", "Completed"];
 
-const projects = [
-    {
-        title: "Pharmaceutical Plant Alpha",
-        category: "Current Projects",
-        image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-        title: "Central Data Hub",
-        category: "Completed",
-        image: "https://media.istockphoto.com/id/846288120/photo/modern-glass-silhouettes-of-skyscrapers.jpg?s=612x612&w=0&k=20&c=h4JDj_Co_hgzFpPJWUvR6AoqiLsR6p2dbsE_dSMXb-0=",
-    },
-    {
-        title: "Metro Line Extension",
-        category: "Current Projects",
-        image: "https://media.istockphoto.com/id/1333149806/photo/silhouette-of-worker-construction-building-casting-concrete-work-on-scaffolding.jpg?s=612x612&w=0&k=20&c=pXCoT0xn_RoLXha93K1EcozKFRM8-f8vQc8kz49mTW0=",
-    },
-    {
-        title: "Iron Ore Facility",
-        category: "Completed",
-        image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=2070&auto=format&fit=crop",
-    },
-    {
-        title: "Central Data Hub",
-        category: "Completed",
-        image: "https://media.istockphoto.com/id/846288120/photo/modern-glass-silhouettes-of-skyscrapers.jpg?s=612x612&w=0&k=20&c=h4JDj_Co_hgzFpPJWUvR6AoqiLsR6p2dbsE_dSMXb-0=",
-    }
-];
-
 export default function Projects() {
     const [activeFilter, setActiveFilter] = useState("All");
+    const [showAll, setShowAll] = useState(false);
 
     const filteredProjects = projects.filter(
         (p) => activeFilter === "All" || p.category === activeFilter
     );
 
+    const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
+
     return (
-        <section className="py-24 bg-white text-slate-900" id="projects">
-            <div className="container mx-auto px-6">
+        <section className="py-24 bg-white text-slate-900 relative overflow-hidden" id="projects">
+            {/* Soft Glow Blobs */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-mesh pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] animate-mesh pointer-events-none" style={{ animationDelay: "-5s" }}></div>
+
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -61,7 +40,10 @@ export default function Projects() {
                         {filters.map((f) => (
                             <button
                                 key={f}
-                                onClick={() => setActiveFilter(f)}
+                                onClick={() => {
+                                    setActiveFilter(f);
+                                    setShowAll(false);
+                                }}
                                 className={cn(
                                     "whitespace-nowrap pb-2 transition-colors border-b-2",
                                     activeFilter === f
@@ -76,16 +58,16 @@ export default function Projects() {
                 </div>
 
                 <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <AnimatePresence>
-                        {filteredProjects.map((project, i) => (
+                    <AnimatePresence mode="popLayout">
+                        {visibleProjects.map((project, i) => (
                             <motion.div
-                                key={project.title}
+                                key={project.id}
                                 layout
                                 initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
+                                animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.8 }}
                                 viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: i * 0.1 }}
+                                transition={{ duration: 0.6 }}
                                 className="group relative overflow-hidden h-[450px] glow-on-hover active-glow rounded-2xl"
                             >
                                 <img
@@ -101,15 +83,30 @@ export default function Projects() {
                                         {project.title}
                                     </h4>
                                     <MagneticButton>
-                                        <button className="bg-white text-black px-6 py-3 text-[10px] font-black uppercase tracking-widest rounded-sm self-start">
-                                            View Project
-                                        </button>
+                                        <Link href={`/projects/${project.slug}`}>
+                                            <span className="bg-white text-black px-6 py-3 text-[10px] font-black uppercase tracking-widest rounded-sm self-start inline-block">
+                                                View Project
+                                            </span>
+                                        </Link>
                                     </MagneticButton>
                                 </div>
                             </motion.div>
                         ))}
                     </AnimatePresence>
                 </motion.div>
+
+                {filteredProjects.length > 4 && (
+                    <div className="mt-16 text-center">
+                        <MagneticButton>
+                            <button
+                                onClick={() => setShowAll(!showAll)}
+                                className="bg-slate-900 hover:bg-slate-800 text-white px-12 py-5 font-black uppercase tracking-widest transition-all rounded-xl shadow-xl hover:shadow-primary/20"
+                            >
+                                {showAll ? "Show Less" : "View More Projects"}
+                            </button>
+                        </MagneticButton>
+                    </div>
+                )}
             </div>
         </section>
     );

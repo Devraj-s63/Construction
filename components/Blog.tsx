@@ -28,8 +28,12 @@ const posts = [
 
 export default function Blog() {
     return (
-        <section className="py-24 bg-white" id="blog">
-            <div className="container mx-auto px-6">
+        <section className="py-24 bg-white relative overflow-hidden" id="blog">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 bg-dot-pattern opacity-10 pointer-events-none"></div>
+            <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-mesh pointer-events-none" style={{ animationDelay: "-10s" }}></div>
+
+            <div className="container mx-auto px-6 relative z-10">
                 <div className="flex items-end justify-between mb-12">
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}

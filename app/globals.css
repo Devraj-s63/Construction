@@ -28,53 +28,39 @@ h6 {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
 }
 
-/* Custom animations and glow effects */
-.glow-on-hover:hover {
-  box-shadow: 0 0 20px 5px rgba(234, 179, 8, 0.3);
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-}
+@keyframes mesh-blob {
 
-.text-glow:hover {
-  text-shadow: 0 0 8px rgba(234, 179, 8, 0.6);
-}
-
-.glass-morphism {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark .glass-morphism {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.bg-dot-pattern {
-  background-image: radial-gradient(circle, #EAB308 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.1;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
+  0%,
   100% {
-    transform: translateY(0px);
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
   }
 }
 
-.animate-float {
-  animation: float 3s ease-in-out infinite;
+.animate-mesh {
+  animation: mesh-blob 20s ease-in-out infinite;
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 20px 40px -10px rgba(234, 179, 8, 0.2);
+  transform: translateY(-5px);
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .active-glow:active {
-  box-shadow: 0 0 30px 10px rgba(234, 179, 8, 0.5);
+  box-shadow: 0 0 30px 10px rgba(234, 179, 8, 0.4);
   transition: all 0.1s ease;
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.15;
 }
