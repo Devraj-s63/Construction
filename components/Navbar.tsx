@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Hammer } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import MagneticButton from "./MagneticButton";
 
 const navLinks = [
     { name: "Home", href: "#" },
@@ -28,9 +29,9 @@ export default function Navbar() {
     return (
         <header
             className={cn(
-                "fixed w-full z-50 transition-all duration-300 py-4 px-6",
+                "fixed w-full z-50 transition-all duration-500 py-6 px-6",
                 scrolled
-                    ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 text-slate-900 dark:text-white"
+                    ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 py-4 shadow-sm"
                     : "bg-transparent text-white"
             )}
         >
@@ -38,45 +39,55 @@ export default function Navbar() {
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="flex items-center space-x-2"
+                    transition={{ duration: 0.8 }}
+                    className="flex items-center space-x-2 group cursor-pointer"
                 >
-                    <Hammer className="text-primary w-8 h-8" />
-                    <span className="font-display font-bold text-xl tracking-tighter">
+                    <div className="relative">
+                        <Hammer className="text-primary w-8 h-8 group-hover:rotate-12 transition-transform duration-300" />
+                        <motion.div
+                            className="absolute -inset-2 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        />
+                    </div>
+                    <span className="font-display font-black text-2xl tracking-[ -0.05em]">
                         CONSTRUCTOR
                     </span>
                 </motion.div>
 
                 {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center space-x-8 font-medium text-sm uppercase tracking-wider">
+                <div className="hidden md:flex items-center space-x-2 font-bold text-[11px] uppercase tracking-[0.2em]">
                     {navLinks.map((link, i) => (
-                        <motion.a
-                            key={link.name}
-                            href={link.href}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className="hover:text-primary transition-colors"
-                        >
-                            {link.name}
-                        </motion.a>
+                        <MagneticButton key={link.name}>
+                            <motion.a
+                                href={link.href}
+                                initial={{ opacity: 0, y: -10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: i * 0.1 }}
+                                className="px-5 py-2 hover:text-primary transition-colors block"
+                            >
+                                {link.name}
+                            </motion.a>
+                        </MagneticButton>
                     ))}
-                    <motion.button
-                        onClick={() => document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="bg-primary hover:bg-yellow-500 text-black px-6 py-2.5 font-bold text-sm uppercase transition-all transform hover:scale-105 glow-on-hover active-glow"
-                    >
-                        Get a Quote
-                    </motion.button>
+
+                    <div className="ml-4">
+                        <MagneticButton>
+                            <button
+                                onClick={() => document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="bg-primary hover:bg-yellow-500 text-black px-6 py-3 font-black text-[11px] uppercase transition-all glow-on-hover active-glow rounded-sm shadow-lg shadow-primary/20"
+                            >
+                                Get a Quote
+                            </button>
+                        </MagneticButton>
+                    </div>
                 </div>
 
                 {/* Mobile Toggle */}
                 <div className="md:hidden">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="text-foreground focus:outline-none"
+                        className="p-2 text-foreground focus:outline-none"
                     >
-                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </nav>
@@ -85,28 +96,31 @@ export default function Navbar() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 overflow-hidden"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="absolute left-0 right-0 top-full md:hidden bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 shadow-2xl p-8"
                     >
-                        <div className="flex flex-col p-6 space-y-4">
-                            {navLinks.map((link) => (
-                                <a
+                        <div className="flex flex-col space-y-6 text-center">
+                            {navLinks.map((link, i) => (
+                                <motion.a
                                     key={link.name}
                                     href={link.href}
+                                    initial={{ opacity: 0, x: -10 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.05 }}
                                     onClick={() => setIsOpen(false)}
-                                    className="text-lg font-medium hover:text-primary transition-colors"
+                                    className="text-2xl font-black hover:text-primary transition-colors tracking-tighter"
                                 >
                                     {link.name}
-                                </a>
+                                </motion.a>
                             ))}
                             <button
                                 onClick={() => {
                                     setIsOpen(false);
                                     document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
                                 }}
-                                className="bg-primary w-full py-4 text-black font-bold uppercase active-glow"
+                                className="bg-primary w-full py-5 text-black font-black uppercase text-sm tracking-widest active-glow rounded-sm"
                             >
                                 Get a Quote
                             </button>

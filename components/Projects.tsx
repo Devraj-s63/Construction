@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import MagneticButton from "./MagneticButton";
 
 const filters = ["All", "Current Projects", "Completed"];
 
@@ -69,30 +70,36 @@ export default function Projects() {
                     </div>
                 </div>
 
-                <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <AnimatePresence>
-                        {filteredProjects.map((project) => (
+                        {filteredProjects.map((project, i) => (
                             <motion.div
                                 key={project.title}
                                 layout
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.4 }}
-                                className="group relative overflow-hidden h-[400px] glow-on-hover active-glow"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.8 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: i * 0.1 }}
+                                className="group relative overflow-hidden h-[450px] glow-on-hover active-glow rounded-2xl"
                             >
                                 <img
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                                     src={project.image}
                                 />
-                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                                    <span className="text-primary font-bold text-xs uppercase mb-2">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+                                    <span className="text-primary font-black text-[10px] uppercase mb-2 tracking-[0.2em]">
                                         {project.category}
                                     </span>
-                                    <h4 className="font-display text-xl font-bold">
+                                    <h4 className="font-display text-2xl font-black tracking-tight leading-none mb-6">
                                         {project.title}
                                     </h4>
+                                    <MagneticButton>
+                                        <button className="bg-white text-black px-6 py-3 text-[10px] font-black uppercase tracking-widest rounded-sm self-start">
+                                            View Project
+                                        </button>
+                                    </MagneticButton>
                                 </div>
                             </motion.div>
                         ))}

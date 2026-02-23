@@ -1,21 +1,17 @@
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
+import ScrollProgress from "@/components/ScrollProgress";
 
-const inter = Inter({
-    subsets: ["latin"],
-    variable: "--font-inter",
-});
-
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const montserrat = Montserrat({
     subsets: ["latin"],
     variable: "--font-montserrat",
-    weight: ["700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-    title: "Heavy Engineering & Construction Excellence | CONSTRUCTOR",
-    description: "Building the future of infrastructure with precision and innovation.",
+    title: "CONSTRUCTOR | Heavy Engineering & Infrastructure",
+    description: "Leading the future of sustainable infrastructure.",
 };
 
 export default function RootLayout({
@@ -24,8 +20,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
             <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
+                <ScrollProgress />
                 {children}
             </body>
         </html>

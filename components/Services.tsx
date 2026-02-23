@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { HardHat, Pickaxe, Landmark, Map } from "lucide-react";
+import MagneticButton from "./MagneticButton";
 
 const services = [
     {
@@ -38,12 +39,12 @@ export default function Services() {
                     {services.map((service, i) => (
                         <motion.div
                             key={service.title}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.5 }}
+                            transition={{ delay: i * 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                             whileHover={{ y: -10 }}
-                            className="bg-white dark:bg-gray-800 p-8 shadow-xl border-b-4 border-primary group transition-all glow-on-hover active-glow"
+                            className="bg-white dark:bg-slate-800 p-8 shadow-xl border-b-4 border-primary group transition-all glow-on-hover active-glow rounded-xl"
                         >
                             <service.icon className="w-12 h-12 text-primary mb-6" />
                             <h3 className="font-display text-xl font-bold mb-4">
@@ -52,12 +53,14 @@ export default function Services() {
                             <p className="text-slate-600 dark:text-slate-400 mb-6 font-body">
                                 {service.description}
                             </p>
-                            <a
-                                className="text-primary font-bold uppercase text-sm flex items-center group-hover:underline"
-                                href={service.link}
-                            >
-                                Read More <span className="ml-2">→</span>
-                            </a>
+                            <MagneticButton>
+                                <a
+                                    className="text-primary font-black uppercase text-xs flex items-center group-hover:tracking-widest transition-all duration-300"
+                                    href={service.link}
+                                >
+                                    Read More <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                                </a>
+                            </MagneticButton>
                         </motion.div>
                     ))}
                 </div>
