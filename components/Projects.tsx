@@ -16,12 +16,12 @@ const projects = [
     {
         title: "Central Data Hub",
         category: "Completed",
-        image: "https://images.unsplash.com/photo-1558441719-ffb4d4500a67?q=80&w=2070&auto=format&fit=crop",
+        image: "https://media.istockphoto.com/id/846288120/photo/modern-glass-silhouettes-of-skyscrapers.jpg?s=612x612&w=0&k=20&c=h4JDj_Co_hgzFpPJWUvR6AoqiLsR6p2dbsE_dSMXb-0=",
     },
     {
         title: "Metro Line Extension",
         category: "Current Projects",
-        image: "https://images.unsplash.com/photo-1545459720-aac273a27b3d?q=80&w=2070&auto=format&fit=crop",
+        image: "https://media.istockphoto.com/id/1333149806/photo/silhouette-of-worker-construction-building-casting-concrete-work-on-scaffolding.jpg?s=612x612&w=0&k=20&c=pXCoT0xn_RoLXha93K1EcozKFRM8-f8vQc8kz49mTW0=",
     },
     {
         title: "Iron Ore Facility",
