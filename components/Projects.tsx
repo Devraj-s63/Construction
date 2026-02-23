@@ -22,8 +22,9 @@ export default function Projects() {
     return (
         <section className="py-24 bg-white text-slate-900 relative overflow-hidden" id="projects">
             {/* Soft Glow Blobs */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] animate-mesh pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] animate-mesh pointer-events-none" style={{ animationDelay: "-5s" }}></div>
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/15 rounded-full blur-[100px] animate-mesh pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[700px] h-[700px] bg-blue-600/15 rounded-full blur-[130px] animate-mesh pointer-events-none" style={{ animationDelay: "-5s" }}></div>
+            <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-yellow-400/10 rounded-full blur-[80px] animate-mesh pointer-events-none" style={{ animationDelay: "-8s" }}></div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">

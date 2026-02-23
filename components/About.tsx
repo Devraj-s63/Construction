@@ -82,7 +82,7 @@ export default function About() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             alt="Blueprint Planning"
                             className="w-full h-full object-cover rounded shadow-2xl mt-8"
-                            src="https://images.unsplash.com/photo-1503387762-592dea58ef23?q=80&w=2070&auto=format&fit=crop"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdubGJYoucQZne03dgp5f5R7gwwTEXB5k17A&s"
                         />
                     </div>
                 </div>

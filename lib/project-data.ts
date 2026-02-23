@@ -48,7 +48,7 @@ export const projects = [
         slug: "sustainable-bridge-project",
         title: "Sustainable Bridge Project",
         category: "Completed",
-        image: "https://images.unsplash.com/photo-1545459720-aac273a27b3d?q=80&w=2070&auto=format&fit=crop",
+        image: "https://media.istockphoto.com/id/1333149806/photo/silhouette-of-worker-construction-building-casting-concrete-work-on-scaffolding.jpg?s=612x612&w=0&k=20&c=pXCoT0xn_RoLXha93K1EcozKFRM8-f8vQc8kz49mTW0=",
         description: "An eco-friendly bridge construction using recycled high-strength steel and low-carbon concrete, designed to last 100+ years with minimal maintenance.",
         client: "Regional Infrastructure Dept",
         timeline: "2021 - 2023",
