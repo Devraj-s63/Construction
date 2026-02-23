@@ -79,7 +79,7 @@ export default function Projects() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.4 }}
-                                className="group relative overflow-hidden h-[400px]"
+                                className="group relative overflow-hidden h-[400px] glow-on-hover active-glow"
                             >
                                 <img
                                     alt={project.title}

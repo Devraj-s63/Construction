@@ -43,7 +43,7 @@ export default function Services() {
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, duration: 0.5 }}
                             whileHover={{ y: -10 }}
-                            className="bg-white dark:bg-gray-800 p-8 shadow-xl border-b-4 border-primary group transition-all"
+                            className="bg-white dark:bg-gray-800 p-8 shadow-xl border-b-4 border-primary group transition-all glow-on-hover active-glow"
                         >
                             <service.icon className="w-12 h-12 text-primary mb-6" />
                             <h3 className="font-display text-xl font-bold mb-4">

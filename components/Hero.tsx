@@ -61,12 +61,15 @@ export default function Hero() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
                     >
-                        <button className="bg-primary hover:bg-yellow-500 text-black px-8 py-4 font-bold uppercase flex items-center justify-center transition-all group">
+                        <button className="bg-primary hover:bg-yellow-500 text-black px-8 py-4 font-bold uppercase flex items-center justify-center transition-all group glow-on-hover active-glow">
                             Our Projects
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
-                        <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 font-bold uppercase transition-all backdrop-blur-sm">
-                            Learn More
+                        <button
+                            onClick={() => document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 font-bold uppercase transition-all backdrop-blur-sm glow-on-hover active-glow"
+                        >
+                            Get a Quote
                         </button>
                     </motion.div>
                 </div>

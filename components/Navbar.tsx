@@ -61,9 +61,10 @@ export default function Navbar() {
                         </motion.a>
                     ))}
                     <motion.button
+                        onClick={() => document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="bg-primary hover:bg-yellow-500 text-black px-6 py-2.5 font-bold text-sm uppercase transition-all transform hover:scale-105"
+                        className="bg-primary hover:bg-yellow-500 text-black px-6 py-2.5 font-bold text-sm uppercase transition-all transform hover:scale-105 glow-on-hover active-glow"
                     >
                         Get a Quote
                     </motion.button>
@@ -100,7 +101,13 @@ export default function Navbar() {
                                     {link.name}
                                 </a>
                             ))}
-                            <button className="bg-primary w-full py-4 text-black font-bold uppercase">
+                            <button
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="bg-primary w-full py-4 text-black font-bold uppercase active-glow"
+                            >
                                 Get a Quote
                             </button>
                         </div>
