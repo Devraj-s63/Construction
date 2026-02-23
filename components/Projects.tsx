@@ -28,6 +28,11 @@ const projects = [
         category: "Completed",
         image: "https://images.unsplash.com/photo-1516937941344-00b4e0337589?q=80&w=2070&auto=format&fit=crop",
     },
+    {
+        title: "Central Data Hub",
+        category: "Completed",
+        image: "https://media.istockphoto.com/id/846288120/photo/modern-glass-silhouettes-of-skyscrapers.jpg?s=612x612&w=0&k=20&c=h4JDj_Co_hgzFpPJWUvR6AoqiLsR6p2dbsE_dSMXb-0=",
+    }
 ];
 
 export default function Projects() {
@@ -92,7 +97,7 @@ export default function Projects() {
                                     <span className="text-primary font-black text-[10px] uppercase mb-2 tracking-[0.2em]">
                                         {project.category}
                                     </span>
-                                    <h4 className="font-display text-2xl font-black tracking-tight leading-none mb-6">
+                                    <h4 className="font-display text-2xl font-black tracking-tight leading-none mb-6 text-white">
                                         {project.title}
                                     </h4>
                                     <MagneticButton>
