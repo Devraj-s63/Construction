@@ -4,7 +4,7 @@ import { Hammer, Send, Facebook, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="bg-slate-900 text-white pt-24 pb-12" id="contact">
+        <footer className="bg-white text-slate-900 pt-24 pb-12 border-t border-slate-100" id="contact">
             <div className="container mx-auto px-6">
                 <div className="grid lg:grid-cols-4 gap-12 mb-16">
                     <div>
@@ -14,7 +14,7 @@ export default function Footer() {
                                 CONSTRUCTOR
                             </span>
                         </div>
-                        <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                        <p className="text-slate-600 text-sm leading-relaxed mb-8">
                             Global leaders in heavy engineering, infrastructure development,
                             and industrial mining projects. Built on precision, ethics, and
                             excellence.
@@ -24,7 +24,7 @@ export default function Footer() {
                                 <a
                                     key={i}
                                     href="#"
-                                    className="w-10 h-10 rounded bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-black transition-all"
+                                    className="w-10 h-10 rounded bg-slate-50 flex items-center justify-center hover:bg-primary hover:text-black transition-all border border-slate-200"
                                 >
                                     <Icon size={18} />
                                 </a>
@@ -33,15 +33,15 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h5 className="font-display font-bold mb-8 uppercase text-sm tracking-widest">
+                        <h5 className="font-display font-bold mb-8 uppercase text-sm tracking-widest text-slate-400">
                             New York Office
                         </h5>
-                        <p className="text-slate-400 text-sm mb-4">
+                        <p className="text-slate-600 text-sm mb-4">
                             123 Industrial Way, Suite 500
                             <br />
                             Manhattan, NY 10001
                         </p>
-                        <p className="text-slate-400 text-sm">
+                        <p className="text-slate-600 text-sm">
                             +1 (212) 555-0198
                             <br />
                             ny@constructoreng.com
@@ -49,15 +49,15 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h5 className="font-display font-bold mb-8 uppercase text-sm tracking-widest">
+                        <h5 className="font-display font-bold mb-8 uppercase text-sm tracking-widest text-slate-400">
                             Boston Office
                         </h5>
-                        <p className="text-slate-400 text-sm mb-4">
+                        <p className="text-slate-600 text-sm mb-4">
                             45 Engineering Road, Terminal 4
                             <br />
                             Boston, MA 02110
                         </p>
-                        <p className="text-slate-400 text-sm">
+                        <p className="text-slate-600 text-sm">
                             +1 (617) 555-0244
                             <br />
                             boston@constructoreng.com
@@ -65,15 +65,15 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h5 className="font-display font-bold mb-8 uppercase text-sm tracking-widest">
+                        <h5 className="font-display font-bold mb-8 uppercase text-sm tracking-widest text-slate-400">
                             Newsletter
                         </h5>
-                        <p className="text-slate-400 text-sm mb-4">
+                        <p className="text-slate-600 text-sm mb-4">
                             Subscribe for the latest industrial insights and project updates.
                         </p>
                         <form className="flex">
                             <input
-                                className="bg-slate-800 border-none px-4 py-3 text-sm flex-grow focus:ring-1 focus:ring-primary outline-none"
+                                className="bg-slate-50 border border-slate-200 px-4 py-3 text-sm flex-grow focus:ring-1 focus:ring-primary outline-none text-slate-900"
                                 placeholder="Email Address"
                                 type="email"
                             />
@@ -84,7 +84,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="border-t border-slate-100 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-slate-500 text-xs">
                         © 2024 Constructor Engineering. All rights reserved.
                     </p>

@@ -4,14 +4,10 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #111827;
+  --foreground: #0f172a;
   --primary: #EAB308;
 }
 
-.dark {
-  --background: #111827;
-  --foreground: #f9fafb;
-}
 
 body {
   color: var(--foreground);
@@ -61,9 +57,17 @@ h6 {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .animate-float {

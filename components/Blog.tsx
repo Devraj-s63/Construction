@@ -28,7 +28,7 @@ const posts = [
 
 export default function Blog() {
     return (
-        <section className="py-24 bg-white dark:bg-gray-900">
+        <section className="py-24 bg-white" id="blog">
             <div className="container mx-auto px-6">
                 <div className="flex items-end justify-between mb-12">
                     <motion.div
@@ -39,9 +39,9 @@ export default function Blog() {
                         <span className="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">
                             Recent Blogs
                         </span>
-                        <h2 className="font-display text-4xl font-bold">Latest News & Updates</h2>
+                        <h2 className="font-display text-4xl font-bold text-slate-900">Latest News & Updates</h2>
                     </motion.div>
-                    <button className="hidden md:block border-b-2 border-primary pb-2 font-bold uppercase text-sm tracking-widest hover:text-primary transition-colors">
+                    <button className="hidden md:block border-b-2 border-primary pb-2 font-bold uppercase text-sm tracking-widest text-slate-900 hover:text-primary transition-colors">
                         View All Posts
                     </button>
                 </div>
@@ -66,10 +66,10 @@ export default function Blog() {
                             <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
                                 {post.date} | {post.category}
                             </span>
-                            <h3 className="font-display text-xl font-bold mt-2 mb-4 group-hover:text-primary transition-colors">
+                            <h3 className="font-display text-xl font-bold mt-2 mb-4 text-slate-900 group-hover:text-primary transition-colors">
                                 {post.title}
                             </h3>
-                            <p className="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
+                            <p className="text-slate-600 text-sm line-clamp-2">
                                 {post.excerpt}
                             </p>
                         </motion.article>

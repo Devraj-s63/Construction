@@ -6,9 +6,9 @@ import MagneticButton from "./MagneticButton";
 
 export default function QuoteForm() {
     return (
-        <section id="quote" className="py-24 bg-slate-50 dark:bg-slate-900/50 relative overflow-hidden">
+        <section id="quote" className="py-24 bg-white relative overflow-hidden">
             {/* Animated Grid Background */}
-            <div className="absolute inset-0 bg-dot-pattern opacity-10 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-dot-pattern opacity-5 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="max-w-4xl mx-auto">
@@ -19,10 +19,10 @@ export default function QuoteForm() {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl md:text-6xl font-display font-black mb-4">
+                        <h2 className="text-4xl md:text-6xl font-display font-black mb-4 text-slate-900">
                             Get a <span className="text-primary text-glow">Free Quote</span>
                         </h2>
-                        <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto">
+                        <p className="text-slate-600 text-lg max-w-2xl mx-auto">
                             Ready to start your next infrastructure project? Fill out the form below
                             and our team will get back to you with a detailed proposal.
                         </p>
@@ -33,7 +33,7 @@ export default function QuoteForm() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="bg-white dark:bg-slate-800 p-8 md:p-12 shadow-2xl rounded-3xl relative overflow-hidden border border-slate-100 dark:border-slate-700"
+                        className="bg-slate-900 p-8 md:p-12 shadow-2xl rounded-3xl relative overflow-hidden border border-white/5"
                     >
                         {/* Background Glow Effects */}
                         <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl opacity-50 animate-pulse"></div>
@@ -58,14 +58,14 @@ export default function QuoteForm() {
                                     <div className="relative group">
                                         <field.icon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-primary transition-colors duration-300" />
                                         {field.type === 'select' ? (
-                                            <select className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-primary dark:focus:border-primary outline-none transition-all rounded-xl appearance-none">
+                                            <select className="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-700 focus:border-primary outline-none transition-all rounded-xl appearance-none text-white">
                                                 {field.options?.map(opt => <option key={opt}>{opt}</option>)}
                                             </select>
                                         ) : (
                                             <input
                                                 type={field.type}
                                                 placeholder={field.placeholder}
-                                                className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-primary dark:focus:border-primary outline-none transition-all rounded-xl"
+                                                className="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-700 focus:border-primary outline-none transition-all rounded-xl text-white placeholder:text-slate-500"
                                             />
                                         )}
                                     </div>
@@ -85,7 +85,7 @@ export default function QuoteForm() {
                                     <textarea
                                         rows={4}
                                         placeholder="Tell us about your project requirements..."
-                                        className="w-full pl-12 pr-4 py-4 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:border-primary dark:focus:border-primary outline-none transition-all rounded-xl"
+                                        className="w-full pl-12 pr-4 py-4 bg-slate-800/50 border border-slate-700 focus:border-primary outline-none transition-all rounded-xl text-white placeholder:text-slate-500"
                                     ></textarea>
                                 </div>
                             </motion.div>
@@ -114,3 +114,4 @@ export default function QuoteForm() {
         </section>
     );
 }
+

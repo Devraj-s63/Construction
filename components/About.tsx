@@ -19,13 +19,13 @@ export default function About() {
                         <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 leading-tight">
                             Pioneering Modern Heavy Engineering Solutions
                         </h2>
-                        <p className="text-slate-600 dark:text-slate-400 text-lg mb-6 leading-relaxed">
+                        <p className="text-slate-600 text-lg mb-6 leading-relaxed">
                             With over three decades of experience, Constructor has evolved
                             into a global leader in civil engineering and industrial
                             construction. We don't just build structures; we build the
                             foundations of society.
                         </p>
-                        <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 leading-relaxed">
+                        <p className="text-slate-600 text-lg mb-10 leading-relaxed">
                             Our team of over 1,500 specialists works tirelessly to ensure that
                             every project meets the highest standards of safety, durability,
                             and innovation.

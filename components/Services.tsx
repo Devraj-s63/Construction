@@ -33,7 +33,7 @@ const services = [
 
 export default function Services() {
     return (
-        <section className="py-24 bg-slate-50 dark:bg-slate-900/50" id="services">
+        <section className="py-24 bg-white" id="services">
             <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {services.map((service, i) => (

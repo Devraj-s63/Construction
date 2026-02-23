@@ -38,7 +38,7 @@ export default function Projects() {
     );
 
     return (
-        <section className="py-24 bg-gray-950 text-white" id="projects">
+        <section className="py-24 bg-white text-slate-900" id="projects">
             <div className="container mx-auto px-6">
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                     <motion.div
