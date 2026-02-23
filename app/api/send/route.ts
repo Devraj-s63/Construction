@@ -3,21 +3,28 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
     try {
+        const { SMTP_USER, SMTP_PASSWORD, RECIPIENT_EMAIL } = process.env;
+
+        if (!SMTP_USER || !SMTP_PASSWORD || !RECIPIENT_EMAIL) {
+            console.error('Missing environment variables for email service');
+            return NextResponse.json({ error: 'Mail server configuration missing' }, { status: 500 });
+        }
+
         const data = await req.json();
         const { name, email, service, phone, details } = data;
 
         // Create a transporter
         const transporter = nodemailer.createTransport({
-            service: 'gmail', // or another provider
+            service: 'gmail',
             auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASSWORD,
+                user: SMTP_USER,
+                pass: SMTP_PASSWORD,
             },
         });
 
         const mailOptions = {
-            from: process.env.SMTP_USER,
-            to: process.env.RECIPIENT_EMAIL,
+            from: SMTP_USER,
+            to: RECIPIENT_EMAIL,
             subject: `New Project Quote Request from ${name}`,
             text: `
         New Quote Request Details:
@@ -47,8 +54,8 @@ export async function POST(req: Request) {
         await transporter.sendMail(mailOptions);
 
         return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
-    } catch (error) {
-        console.error('Email send error:', error);
-        return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
+    } catch (error: any) {
+        console.error('Email send error:', error.message || error);
+        return NextResponse.json({ error: error.message || 'Failed to send email' }, { status: 500 });
     }
 }
